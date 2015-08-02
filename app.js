@@ -38,8 +38,12 @@ app.post('/upload', photos.submit(app.get('photos')));
 app.get('/photo/:id/download',photos.download(app.get('photos')));
 
 
-http.createServer(app).listen(app.get('port'),function(){
+/**http.createServer(app).listen(app.get('port'),function(){
   console.log("Express server listening on port " + app.get('port'));
+});**/
+
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server started on %d", this.address().port);
 });
 
 // catch 404 and forward to error handler
